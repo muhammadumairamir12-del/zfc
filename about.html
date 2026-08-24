@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <script src="theme-switcher.js"></script>
 </head>
 <body>
     <!-- Loading Screen Transition -->
@@ -52,13 +54,15 @@
     <nav>
         <div class="logo-container">
             <a href="/" style="text-decoration: none;">
-                <div class="logo">SkyEagle Studio</div>
+                <div class="logo"><img src="images/logo.png" alt="SkyEagle Studio" class="header-logo">SkyEagle Studio</div>
             </a>
             <div class="logo-subtitle">SOFTWARE STUDIO</div>
         </div>
-        <div class="hamburger-menu" id="navToggle" aria-label="Toggle Navigation">
-            <i class="fas fa-bars"></i>
-        </div>
+                    <div class="hamburger-menu" id="navToggle">
+                <span class="line line-1"></span>
+                <span class="line line-2"></span>
+                <span class="line line-3"></span>
+            </div>
                         <ul class="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/services">Services</a></li>
@@ -104,32 +108,32 @@
         <section class="experience bg-alternate" style="border-top:1px solid #111; border-bottom:1px solid #111; padding: 100px 20px;">
             <h2 class="experience-title">Our Operational Values</h2>
             <div class="why-us-grid">
-                <div class="why-card">
+                <div class="why-card tilt-3d">
                     <i class="fas fa-folder-open"></i>
                     <h4>Real Projects</h4>
                     <p>We showcase actual websites and software products. We do not invent fake client work.</p>
                 </div>
-                <div class="why-card">
+                <div class="why-card tilt-3d">
                     <i class="fas fa-briefcase"></i>
                     <h4>Business-Focused Development</h4>
                     <p>Every system module is programmed to resolve bottleneck workflows and maximize leads capture.</p>
                 </div>
-                <div class="why-card">
+                <div class="why-card tilt-3d">
                     <i class="fas fa-cubes"></i>
                     <h4>Full-Stack Capability</h4>
                     <p>We write clean frontend interfaces, database schemas, secure middleware APIs, and server hostings.</p>
                 </div>
-                <div class="why-card">
+                <div class="why-card tilt-3d">
                     <i class="fas fa-mobile-screen-button"></i>
                     <h4>Multiple Platforms</h4>
                     <p>Delivering applications across Apple iOS, Android, hybrid desktop apps, and multi-user web SaaS.</p>
                 </div>
-                <div class="why-card">
+                <div class="why-card tilt-3d">
                     <i class="fas fa-microchip"></i>
                     <h4>Modern Technology</h4>
                     <p>Writing responsive systems via Next.js, React, TypeScript, Flutter, Tailwind CSS, and AI APIs.</p>
                 </div>
-                <div class="why-card">
+                <div class="why-card tilt-3d">
                     <i class="fas fa-shield-halved"></i>
                     <h4>Long-Term Support</h4>
                     <p>We compile, launch, optimize search index friendliness, and provide hosting support contracts.</p>
@@ -152,7 +156,7 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-team">SkyEagle Studio</div>
+        <img src="images/logo.png" alt="SkyEagle Studio Logo" class="footer-logo"><div class="footer-team">SkyEagle Studio</div>
         <p style="color: #aaa; margin-bottom: 20px; font-size: 1.1rem;">Digital products, software and AI solutions built for real businesses.</p>
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 20px;">
             <a href="/" style="color: #888; text-decoration: none; font-size: 0.9rem;">Home</a>

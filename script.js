@@ -67,23 +67,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (hamburger && navLinksList) {
         hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
             navLinksList.classList.toggle('active');
-            const icon = hamburger.querySelector('i');
-            if (icon) {
-                if (navLinksList.classList.contains('active')) {
-                    icon.className = 'fas fa-times';
-                } else {
-                    icon.className = 'fas fa-bars';
-                }
-            }
         });
 
         // Close links when single link is clicked
         navLinksList.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
                 navLinksList.classList.remove('active');
-                const icon = hamburger.querySelector('i');
-                if (icon) icon.className = 'fas fa-bars';
             });
         });
     }
@@ -390,6 +382,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (noResults) {
                 noResults.style.display = visibleCount === 0 ? 'block' : 'none';
             }
+            
+            // Re-trigger 3D tilt bindings for new cards
+            if (typeof init3dTilt === 'function') {
+                init3dTilt();
+            }
         }
 
         // Render Initially
@@ -413,4 +410,36 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // ===== 3D CARD TILT EFFECT =====
+    function init3dTilt() {
+        const tiltElements = document.querySelectorAll('.tilt-3d');
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        
+        if (isTouch) return;
+        
+        tiltElements.forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const maxRotation = 10; // degrees
+                const rotateX = ((centerY - y) / centerY) * maxRotation;
+                const rotateY = ((x - centerX) / centerX) * maxRotation;
+                
+                el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+        });
+    }
+    
+    // Run initially for any static elements
+    init3dTilt();
 });
