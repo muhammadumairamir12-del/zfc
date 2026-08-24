@@ -2721,21 +2721,28 @@ html.theme-mode-light .tilt-3d:hover {
 
 /* MOBILE NAV ONLY (320px - 767px) */
 @media (max-width: 767px) {
+    html, body {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
     nav {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
+        right: 0 !important;
         width: 100% !important;
         height: calc(70px + env(safe-area-inset-top)) !important;
         padding-top: calc(10px + env(safe-area-inset-top)) !important;
         padding-bottom: 10px !important;
-        padding-left: 20px !important;
-        padding-right: 20px !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
         justify-content: space-between !important;
-        z-index: 1003 !important;
+        z-index: 9999 !important;
+        box-sizing: border-box !important;
     }
     
     .logo-subtitle {
@@ -2747,30 +2754,118 @@ html.theme-mode-light .tilt-3d:hover {
         flex-direction: row !important;
         align-items: center !important;
         height: 100% !important;
+        flex-grow: 1 !important;
+        flex-shrink: 1 !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    .logo-container a {
+        display: flex !important;
+        align-items: center !important;
+        min-width: 0 !important;
+        width: 100% !important;
+        text-decoration: none !important;
     }
     
     .logo {
         display: flex !important;
         align-items: center !important;
         gap: 8px !important;
-        font-size: clamp(1.05rem, 4.2vw, 1.35rem) !important;
+        font-size: clamp(1rem, 4.2vw, 1.25rem) !important;
         white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        flex-shrink: 1 !important;
+        min-width: 0 !important;
     }
     
     .header-logo {
         height: 38px !important;
         max-height: 38px !important;
         width: auto !important;
+        flex-shrink: 0 !important;
     }
     
     main {
         margin-top: calc(70px + env(safe-area-inset-top)) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
     }
     
     .hero {
         min-height: calc(100vh - (70px + env(safe-area-inset-top))) !important;
         padding-top: 30px !important;
         padding-bottom: 40px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
+    }
+    .hero-content h2 {
+        font-size: clamp(1.1rem, 5vw, 1.4rem) !important;
+    }
+    
+    /* Layout paddings content sizing */
+    .experience, .demos, .services, .skills-section, .contact-section, .projects-header, .global-clients, .testimonials {
+        padding: 50px 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .experience-grid,
+    .demos-grid,
+    .services-grid,
+    .why-us-grid,
+    .skills-grid,
+    .process-grid,
+    .reviews-grid,
+    .testimonial-grid,
+    .clients-grid,
+    .contact-container {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .founder-flex-container,
+    .software-flex-container {
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        gap: 20px !important;
+    }
+    
+    .founder-card-box,
+    .founder-text-box,
+    .software-text-col,
+    .software-card-col {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: none !important;
+        box-sizing: border-box !important;
+    }
+    
+    .service-card,
+    .skill-card,
+    .why-card,
+    .exp-card,
+    .demo-card,
+    .pricing-banner,
+    .contact-form,
+    .founder-card-box {
+        padding: 24px 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
     
     .hamburger-menu {
@@ -2781,12 +2876,14 @@ html.theme-mode-light .tilt-3d:hover {
         width: 44px !important;
         height: 44px !important;
         cursor: pointer !important;
-        z-index: 1005 !important;
+        z-index: 10005 !important;
         padding: 10px !important;
         background: transparent !important;
         border: none !important;
         margin-right: -10px !important;
         gap: 5px !important;
+        flex-shrink: 0 !important;
+        box-sizing: border-box !important;
     }
     
     .hamburger-menu .line {
@@ -2797,6 +2894,7 @@ html.theme-mode-light .tilt-3d:hover {
         transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
         transform-origin: center !important;
         border-radius: 1px !important;
+        flex-shrink: 0 !important;
     }
     
     html.theme-mode-light .hamburger-menu .line {
@@ -2821,7 +2919,7 @@ html.theme-mode-light .tilt-3d:hover {
         position: fixed !important;
         top: calc(70px + env(safe-area-inset-top)) !important;
         left: 0 !important;
-        width: 100vw !important;
+        width: 100% !important;
         height: calc(100vh - (70px + env(safe-area-inset-top))) !important;
         background: #000000 !important;
         backdrop-filter: blur(15px) !important;
@@ -2829,13 +2927,14 @@ html.theme-mode-light .tilt-3d:hover {
         justify-content: center !important;
         align-items: center !important;
         gap: 15px !important;
-        z-index: 1001 !important;
+        z-index: 9998 !important;
         transform: translateY(-100%) !important;
         transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1) !important;
         visibility: hidden !important;
         pointer-events: none !important;
         padding: 40px 20px !important;
         overflow-y: auto !important;
+        box-sizing: border-box !important;
     }
     
     html.theme-mode-light .nav-links {
