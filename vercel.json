@@ -5,10 +5,6 @@
     {
       "source": "/projects/:slug",
       "destination": "/projects/case-study.html"
-    },
-    {
-      "source": "/blog/:slug",
-      "destination": "/blog/article.html"
     }
   ]
 }
