@@ -69,6 +69,12 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navLinksList.classList.toggle('active');
+            
+            if (navLinksList.classList.contains('active')) {
+                document.body.classList.add('no-scroll');
+            } else {
+                document.body.classList.remove('no-scroll');
+            }
         });
 
         // Close links when single link is clicked
@@ -76,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navLinksList.classList.remove('active');
+                document.body.classList.remove('no-scroll');
             });
         });
     }
