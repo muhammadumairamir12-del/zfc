@@ -79,12 +79,14 @@
         <div class="hamburger-menu" id="navToggle" aria-label="Toggle Navigation">
             <i class="fas fa-bars"></i>
         </div>
-        <ul class="nav-links">
-            <li><a href="/" class="active">Home</a></li>
+                <ul class="nav-links">
+            <li><a href="/">Home</a></li>
             <li><a href="/services">Services</a></li>
             <li><a href="/projects">Work</a></li>
             <li><a href="/software">Software</a></li>
+            <li><a href="/reviews">Reviews</a></li>
             <li><a href="/about">About</a></li>
+            <li><a href="/blog">Blog</a></li>
             <li><a href="/contact">Contact</a></li>
             <li class="nav-cta-item"><a href="/contact" class="btn btn-primary nav-cta-btn">Start a Project</a></li>
         </ul>
@@ -397,7 +399,34 @@
             </div>
         </section>
 
-        <!-- 10. ABOUT FOUNDER SECTION -->
+        <!-- 10. CLIENT REVIEWS SECTION -->
+        <section class="experience bg-alternate" id="home-reviews" style="border-top:1px solid #111; padding: 100px 20px 80px;">
+            <h2 class="experience-title">Client Reviews</h2>
+            <p style="text-align: center; color: var(--gray-light); max-width:600px; margin:-20px auto 40px;">Real feedback from people and businesses we've worked with.</p>
+            <div class="reviews-grid" id="homeReviewsWrapper" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto 40px; padding: 0 20px;">
+                <!-- Dynamically loaded reviews -->
+                <div style="text-align: center; grid-column: 1 / -1; padding: 20px 0; color:#666;">
+                    <i class="fas fa-spinner fa-spin"></i> Loading client testimonials...
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="/reviews" class="btn btn-secondary"><span>View All Reviews <i class="fas fa-arrow-right" style="margin-left:6px;"></i></span></a>
+            </div>
+        </section>
+
+        <!-- 10B. LATEST INSIGHTS SECTION -->
+        <section class="skills-section" id="home-blog" style="border-top:1px solid #111; padding: 100px 20px 80px;">
+            <h2 class="section-title">Latest Insights</h2>
+            <p style="text-align: center; color: var(--gray-light); max-width:600px; margin:-20px auto 40px;">Practical guides and architectural reviews from our engineering team.</p>
+            <div class="blog-grid" id="homeBlogWrapper" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto 40px; padding: 0 20px;">
+                <!-- Dynamically loaded blog posts -->
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="/blog" class="btn btn-secondary"><span>View All Articles <i class="fas fa-arrow-right" style="margin-left:6px;"></i></span></a>
+            </div>
+        </section>
+
+        <!-- 10C. ABOUT FOUNDER SECTION -->
         <section class="experience" id="about-founder">
             <h2 class="experience-title">About the Founder</h2>
             <div class="founder-flex-container">
@@ -405,8 +434,14 @@
                     <div class="avatar-placeholder">MU</div>
                     <h3>Muhammad Umair</h3>
                     <p class="title">Founder & Full-Stack Developer</p>
-                    <div class="social-links" style="margin-top: 15px;">
+                                        <div class="social-links" style="margin-top: 15px;">
                         <a href="https://github.com/muhammadumairamir12-del" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/muhammad-umair-amir-5a154b3a9/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://web.facebook.com/skyeaglestudio" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/codingwithumair/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/MUmair_xyz" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://youtube.com/@codingwithumair5?si=SRCwGQ17y4uDuSn9" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@startups_apps?_r=1&_t=ZS-998xyOL1yQG" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
                 <div class="founder-text-box">
@@ -564,14 +599,116 @@
             <a href="/privacy-policy" style="color: #888; text-decoration: none; font-size: 0.9rem;">Privacy</a>
             <a href="/terms" style="color: #888; text-decoration: none; font-size: 0.9rem;">Terms</a>
         </div>
-        <div class="social-links">
+                <div class="social-links">
             <a href="https://github.com/muhammadumairamir12-del" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/muhammad-umair-amir-5a154b3a9/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://web.facebook.com/skyeaglestudio" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/codingwithumair/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/MUmair_xyz" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://youtube.com/@codingwithumair5?si=SRCwGQ17y4uDuSn9" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@startups_apps?_r=1&_t=ZS-998xyOL1yQG" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
         </div>
         <p style="color: #666; font-size: 0.9rem; margin-top: 20px;">© 2026 SkyEagle Studio. All rights reserved. | Deployed Globally</p>
     </footer>
 
     <!-- Scripts -->
     <script src="projects-data.js"></script>
+    <script src="blog-data.js"></script>
+        <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="firebase-init.js"></script>
     <script src="script.js"></script>
+
+    <!-- Dynamic home insights & reviews loader -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Render Latest 3 Blog Articles
+            const homeBlog = document.getElementById('homeBlogWrapper');
+            if (homeBlog && window.blogPostsData) {
+                homeBlog.innerHTML = '';
+                const latestPosts = window.blogPostsData.slice(0, 3);
+                latestPosts.forEach(post => {
+                    homeBlog.innerHTML += `
+                        <div class="blog-card" style="background:rgba(10,10,10,0.4); border:1px solid #1a1a1a; border-radius:10px; padding:25px; display:flex; flex-direction:column; justify-content:space-between; text-align:left;">
+                            <div>
+                                <div style="position:relative; overflow:hidden; border-radius:8px; margin-bottom:15px; height:180px;">
+                                    <span class="blog-badge" style="position:absolute; top:12px; left:12px; z-index:10; font-size:0.65rem; font-weight:700; background:rgba(0,240,255,0.08); border:1px solid rgba(0,240,255,0.15); color:var(--primary); padding:3px 8px; border-radius:4px; text-transform:uppercase;">${post.category}</span>
+                                    <img src="${post.featuredImage}" alt="${post.title}" style="width:100%; height:100%; object-fit:cover;">
+                                </div>
+                                <h3 style="font-family:var(--font-heading); font-size:1.15rem; color:#fff; margin-bottom:10px; font-weight:700; line-height:1.3;">${post.title}</h3>
+                                <p style="color:#888; font-size:0.85rem; line-height:1.5; margin-bottom:20px;">${post.excerpt}</p>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #151515; padding-top:15px; margin-top:auto;">
+                                <div style="display:flex; flex-direction:column;">
+                                    <span style="color:#eee; font-size:0.75rem; font-weight:600;">${post.author}</span>
+                                    <span style="color:#555; font-size:0.7rem; margin-top:2px;">${post.publishedAt}</span>
+                                </div>
+                                <a href="/blog/${post.slug}" class="btn btn-secondary" style="font-size:0.72rem; padding:6px 12px;">Read Article</a>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            // 2. Render Latest 3 Approved Reviews
+            const homeReviews = document.getElementById('homeReviewsWrapper');
+            if (homeReviews && window.db) {
+                window.db.collection('reviews')
+                    .where('status', '==', 'approved')
+                    .orderBy('createdAt', 'desc')
+                    .limit(3)
+                    .get()
+                    .then(snapshot => {
+                        homeReviews.innerHTML = '';
+                        let count = 0;
+                        snapshot.forEach(doc => {
+                            const r = doc.data();
+                            const initial = r.name.charAt(0).toUpperCase();
+                            
+                            let stars = '';
+                            for (let i = 1; i <= 5; i++) {
+                                stars += i <= r.rating ? '<i class="fas fa-star" style="color:#ffd700; font-size:0.75rem; margin-right:2px;"></i>' : '<i class="far fa-star" style="color:#333; font-size:0.75rem; margin-right:2px;"></i>';
+                            }
+
+                            const companyRole = [r.role, r.company].filter(Boolean).join(', ');
+                            const companyLine = companyRole ? `<span style="font-size:0.75rem; color:#555;">${companyRole}</span>` : '';
+
+                            homeReviews.innerHTML += `
+                                <div class="review-card" style="background:rgba(10,10,10,0.4); border:1px solid #1a1a1a; border-radius:10px; padding:25px; text-align:left;">
+                                    <div style="display:flex; gap:12px; align-items:center; margin-bottom:15px;">
+                                        <div style="width:40px; height:40px; border-radius:50%; background:var(--primary); color:#000; display:flex; align-items:center; justify-content:center; font-family:var(--font-heading); font-weight:700; font-size:1rem; border:1px solid var(--primary);">${initial}</div>
+                                        <div style="display:flex; flex-direction:column;">
+                                            <h4 style="font-family:var(--font-heading); font-size:0.95rem; color:#fff; margin:0;">${r.name}</h4>
+                                            ${companyLine}
+                                        </div>
+                                    </div>
+                                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                                        <div>${stars}</div>
+                                        ${r.project ? `<span style="background:rgba(0,240,255,0.05); border:1px solid rgba(0,240,255,0.1); color:var(--primary); font-size:0.65rem; padding:2px 6px; border-radius:4px; text-transform:uppercase;">${r.project}</span>` : ''}
+                                    </div>
+                                    <p style="color:#aaa; font-size:0.85rem; line-height:1.5; margin:0; min-height:60px;">"${r.review}"</p>
+                                </div>
+                            `;
+                            count++;
+                        });
+
+                        if (count === 0) {
+                            homeReviews.innerHTML = `
+                                <div style="text-align:center; grid-column:1/-1; padding:20px 0; color:#555; font-size:0.88rem;">
+                                    No approved reviews logged. Be the first to share your feedback!
+                                </div>
+                            `;
+                        }
+                    })
+                    .catch(err => {
+                        console.error("Home reviews query failed: ", err);
+                        homeReviews.innerHTML = `<div style="text-align:center; grid-column:1/-1; color:#ff5555; font-size:0.82rem;">Database query failed.</div>`;
+                    });
+            }
+        });
+    </script>
 </body>
 </html>

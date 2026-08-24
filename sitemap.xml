@@ -60,6 +60,39 @@
     <loc>https://skyeaglestudio.com/terms</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://skyeaglestudio.com/blog</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://skyeaglestudio.com/reviews</loc>
+    <priority>0.8</priority>
+  </url>
+  <!-- Dynamic Blog Pages -->
+  <url>
+    <loc>https://skyeaglestudio.com/blog/why-hair-transplant-clinics-need-custom-database-erps</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://skyeaglestudio.com/blog/modernizing-solar-business-building-interactive-estimators</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://skyeaglestudio.com/blog/saas-pos-vs-traditional-billing-speeding-up-store-sales</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://skyeaglestudio.com/blog/why-flutter-and-next-js-are-gold-stack-for-modern-apps</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://skyeaglestudio.com/blog/optimizing-e-commerce-checkouts-for-300-percent-conversions</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://skyeaglestudio.com/blog/building-secure-patient-databases-for-hospital-networks</loc>
+    <priority>0.6</priority>
+  </url>
   <!-- Dynamic Project Pages -->
   <url>
     <loc>https://skyeaglestudio.com/projects/al-noor-solar-energy</loc>

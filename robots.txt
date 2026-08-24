@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /damin
+Disallow: /admin.html
+Disallow: /damin.html
+Disallow: /admin/
 
 Sitemap: https://skyeaglestudio.com/sitemap.xml

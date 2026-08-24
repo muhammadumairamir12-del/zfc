@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Reviews & Testimonials | SkyEagle Studio</title>
+    <meta name="description" content="Read real client reviews and testimonials about SkyEagle Studio software systems, SaaS architectures, mobile app developments, and custom calculators.">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .reviews-section {
+            padding: 140px 20px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .reviews-header h1 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            color: #fff;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .reviews-header p {
+            color: #888;
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Summary Stats Cards */
+        .summary-stats-box {
+            background: rgba(10, 10, 10, 0.4);
+            border: 1px solid #1c1c1c;
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .stat-item .value {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .stat-stars {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        /* Controls */
+        .reviews-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .reviews-controls select {
+            background: rgba(10, 10, 10, 0.4);
+            border: 1px solid #1c1c1c;
+            color: #aaa;
+            border-radius: 50px;
+            padding: 0 25px;
+            height: 46px;
+            font-size: 0.85rem;
+            outline: none;
+            cursor: pointer;
+            min-width: 180px;
+        }
+
+        /* Reviews Grid */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .review-card {
+            background: rgba(10, 10, 10, 0.4);
+            border: 1px solid #1a1a1a;
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s;
+            text-align: left;
+            position: relative;
+        }
+
+        .review-card:hover {
+            border-color: #222;
+            transform: translateY(-2px);
+        }
+
+        .review-card-header {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.2rem;
+            border: 1px solid var(--primary);
+        }
+
+        .reviewer-info h4 {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            color: #fff;
+            margin: 0;
+        }
+
+        .reviewer-info .role-company {
+            font-size: 0.82rem;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .review-rating-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .card-stars {
+            color: #ffd700;
+            font-size: 0.88rem;
+        }
+
+        .card-project-tag {
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.1);
+            color: var(--primary);
+            font-size: 0.68rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .review-card-body p {
+            color: #aaa;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            min-height: 80px;
+        }
+
+        .review-card-footer {
+            border-top: 1px solid #151515;
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #555;
+            font-size: 0.78rem;
+        }
+
+        .review-actions-row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .review-action-btn {
+            background: none;
+            border: none;
+            color: #555;
+            cursor: pointer;
+            transition: color 0.3s;
+            font-size: 0.82rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .review-action-btn:hover {
+            color: #fff;
+        }
+
+        .review-action-btn.liked {
+            color: var(--primary);
+        }
+
+        .load-more-container {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        /* Leave a Review Form */
+        .leave-review-box {
+            background: rgba(10, 10, 10, 0.5);
+            border: 1px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 750px;
+            margin: 0 auto 60px;
+            backdrop-filter: blur(10px);
+        }
+
+        .leave-review-box h2 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .leave-review-box p.subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 0.92rem;
+        }
+
+        /* Clickable Stars */
+        .stars-select-wrapper {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: #333;
+        }
+
+        .stars-select-wrapper i {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .stars-select-wrapper i.active, .stars-select-wrapper i:hover {
+            color: #ffd700;
+        }
+
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-status-alert {
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            display: none;
+            text-align: center;
+        }
+
+        .form-status-alert.success {
+            background: rgba(40, 167, 69, 0.1);
+            border: 1px solid rgba(40, 167, 69, 0.2);
+            color: #28a745;
+        }
+
+        .form-status-alert.error {
+            background: rgba(220, 53, 69, 0.1);
+            border: 1px solid rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+        }
+
+        /* Final CTAs */
+        .reviews-bottom-cta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        /* Report Modal overlay */
+        .report-overlay-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .report-overlay-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .report-modal-content {
+            background: #0d0d0d;
+            border: 1px solid #1a1a1a;
+            border-radius: 12px;
+            padding: 35px;
+            max-width: 450px;
+            width: 90%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+
+        .report-modal-content h3 {
+            font-family: var(--font-heading);
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .report-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #555;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .report-modal-close:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid-2 {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .summary-stats-box {
+                flex-direction: column;
+            }
+            .reviews-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen Transition -->
+    <div class="loading-screen" id="loaderScreen" aria-hidden="true">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Custom Neon Cursor Follower -->
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-follower" aria-hidden="true"></div>
+
+    <!-- Cosmic Background Elements -->
+    <div class="bg-container" aria-hidden="true">
+        <div class="grid-overlay"></div>
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <nav>
+        <div class="logo-container">
+            <a href="/" style="text-decoration: none;">
+                <div class="logo">SkyEagle Studio</div>
+            </a>
+            <div class="logo-subtitle">SOFTWARE STUDIO</div>
+        </div>
+        <div class="hamburger-menu" id="navToggle" aria-label="Toggle Navigation">
+            <i class="fas fa-bars"></i>
+        </div>
+                <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/projects">Work</a></li>
+            <li><a href="/software">Software</a></li>
+            <li><a href="/reviews">Reviews</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li class="nav-cta-item"><a href="/contact" class="btn btn-primary nav-cta-btn">Start a Project</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="reviews-section">
+            
+            <!-- Page Header -->
+            <div class="reviews-header">
+                <h1>What Our Clients Say</h1>
+                <p>Real feedback from people and businesses we've worked with. Calculated dynamically from approved client submissions.</p>
+            </div>
+
+            <!-- Stats Summary Counters -->
+            <div class="summary-stats-box">
+                <div class="stat-item">
+                    <h3>Average Rating</h3>
+                    <div class="value" id="avgRatingVal">0.0</div>
+                    <div class="stat-stars" id="avgRatingStars">
+                        <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <h3>Total Reviews</h3>
+                    <div class="value" id="totalReviewsVal">0</div>
+                    <p style="color:#555; font-size:0.8rem; margin-top:5px; text-transform:uppercase;">Approved Logs</p>
+                </div>
+            </div>
+
+            <!-- Sorting & Actions controls -->
+            <div class="reviews-controls">
+                <a href="#submitReviewFormSection" class="btn btn-secondary" style="font-size:0.8rem; padding: 10px 20px;">
+                    <span>Write a Review <i class="fas fa-pen-nib" style="margin-left:6px;"></i></span>
+                </a>
+                <select id="reviewSortSelect">
+                    <option value="newest">Sort: Newest First</option>
+                    <option value="highest">Sort: Highest Rated</option>
+                    <option value="lowest">Sort: Lowest Rated</option>
+                </select>
+            </div>
+
+            <!-- Reviews Grid Wrapper -->
+            <div class="reviews-grid" id="reviewsWrapper">
+                <div style="text-align: center; grid-column: 1 / -1; padding: 60px 0;">
+                    <i class="fas fa-circle-notch fa-spin" style="font-size: 2.2rem; color: var(--primary);"></i>
+                    <p style="color:#666; margin-top: 12px;">Querying Firestore review logs...</p>
+                </div>
+            </div>
+
+            <!-- Load More -->
+            <div class="load-more-container" id="loadMoreBtnWrapper" style="display: none;">
+                <button class="btn btn-secondary" id="loadMoreReviewsBtn">
+                    <span>Load More Reviews <i class="fas fa-angles-down" style="margin-left:6px;"></i></span>
+                </button>
+            </div>
+
+            <!-- Leave a Review form box -->
+            <div class="leave-review-box" id="submitReviewFormSection">
+                <h2>Share Your Experience</h2>
+                <p class="subtitle">Thank you for working with SkyEagle Studio. Your feedback helps us build better digital products.</p>
+                
+                <div class="form-status-alert" id="formAlertBox"></div>
+
+                <form id="clientReviewForm">
+                    <!-- Dynamic Star Selection -->
+                    <div class="form-group" style="text-align: center;">
+                        <label style="display: block; margin-bottom: 10px;">Your Star Rating</label>
+                        <div class="stars-select-wrapper" id="starsSelector">
+                            <i class="fas fa-star" data-rating="1"></i>
+                            <i class="fas fa-star" data-rating="2"></i>
+                            <i class="fas fa-star" data-rating="3"></i>
+                            <i class="fas fa-star" data-rating="4"></i>
+                            <i class="fas fa-star" data-rating="5"></i>
+                        </div>
+                        <input type="hidden" id="reviewRatingInput" value="5" required>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="reviewName" placeholder="e.g. Asim Jameel" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" id="reviewEmail" placeholder="e.g. asim@company.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label>Company Name (Optional)</label>
+                            <input type="text" id="reviewCompany" placeholder="e.g. Jameel Tech">
+                        </div>
+                        <div class="form-group">
+                            <label>Your Role (Optional)</label>
+                            <input type="text" id="reviewRole" placeholder="e.g. CEO / Operations Lead">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Project Name / Product Built</label>
+                        <input type="text" id="reviewProject" placeholder="e.g. Solar Bill Estimator Web App" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Review Description</label>
+                        <textarea id="reviewText" rows="5" placeholder="Share your experience working with SkyEagle Studio. How was the communication, implementation speed, and codebase delivery?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 15px;">
+                        <span>Submit Review Logs</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Bottom CTAs -->
+            <div class="reviews-bottom-cta">
+                <a href="/contact" class="btn btn-primary"><span>Start a Project <i class="fas fa-arrow-right" style="margin-left:6px;"></i></span></a>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Report Abuse Modal -->
+    <div class="report-overlay-modal" id="reportReviewModal">
+        <div class="report-modal-content">
+            <button class="report-modal-close" onclick="closeReportModal()"><i class="fas fa-xmark"></i></button>
+            <h3>Report Review</h3>
+            <p style="color:#666; font-size:0.85rem; margin-bottom:20px;">Help us verify the credibility of client feedback logs. Please select the reporting reason below.</p>
+            
+            <form id="submitReportForm">
+                <input type="hidden" id="reportReviewId">
+                <div class="form-group">
+                    <label>Reason</label>
+                    <select id="reportReason" class="admin-filter-select" style="width:100%; margin:0; border-radius:8px;" required>
+                        <option value="spam">Spam / Duplicate Posting</option>
+                        <option value="fake">Fake Testimonial Identity</option>
+                        <option value="offensive">Offensive Content / Profanity</option>
+                        <option value="incorrect">Incorrect Project Mapping</option>
+                        <option value="other">Other / General Report</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Additional Context (Optional)</label>
+                    <textarea id="reportMessage" rows="3" placeholder="Provide extra details for our moderators..." style="width:100%; resize:none; border-radius:8px;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%; margin-top:15px;">
+                    <span>Submit Report</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-team">SkyEagle Studio</div>
+        <p style="color: #aaa; margin-bottom: 20px; font-size: 1.1rem;">Digital products, software and AI solutions built for real businesses.</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 20px;">
+            <a href="/" style="color: #888; text-decoration: none; font-size: 0.9rem;">Home</a>
+            <a href="/services" style="color: #888; text-decoration: none; font-size: 0.9rem;">Services</a>
+            <a href="/projects" style="color: #888; text-decoration: none; font-size: 0.9rem;">Work</a>
+            <a href="/software" style="color: #888; text-decoration: none; font-size: 0.9rem;">Software</a>
+            <a href="/about" style="color: #888; text-decoration: none; font-size: 0.9rem;">About</a>
+            <a href="/contact" style="color: #888; text-decoration: none; font-size: 0.9rem;">Contact</a>
+            <a href="/privacy-policy" style="color: #888; text-decoration: none; font-size: 0.9rem;">Privacy</a>
+            <a href="/terms" style="color: #888; text-decoration: none; font-size: 0.9rem;">Terms</a>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/muhammadumairamir12-del" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/muhammad-umair-amir-5a154b3a9/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://web.facebook.com/skyeaglestudio" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/codingwithumair/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/MUmair_xyz" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://youtube.com/@codingwithumair5?si=SRCwGQ17y4uDuSn9" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@startups_apps?_r=1&_t=ZS-998xyOL1yQG" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p style="color: #666; font-size: 0.9rem; margin-top: 20px;">© 2026 SkyEagle Studio. All rights reserved. | Deployed Globally</p>
+    </footer>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="firebase-init.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Reviews Business logic -->
+    <script>
+        let reviewsList = [];
+        let sortedReviewsList = [];
+        let limitPerPage = 6;
+        let activePageLimit = 6;
+        let activeSortRule = 'newest';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Stars selection setup
+            const stars = document.querySelectorAll('#starsSelector i');
+            const ratingInput = document.getElementById('reviewRatingInput');
+
+            stars.forEach(star => {
+                // Initialize default (5 active stars)
+                star.classList.add('active');
+
+                star.addEventListener('click', (e) => {
+                    const rating = parseInt(star.getAttribute('data-rating'));
+                    ratingInput.value = rating;
+                    
+                    // Reset all stars and color active range
+                    stars.forEach(s => {
+                        const r = parseInt(s.getAttribute('data-rating'));
+                        if (r <= rating) {
+                            s.classList.add('active');
+                        } else {
+                            s.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // Form Submit handler
+            const form = document.getElementById('clientReviewForm');
+            const alertBox = document.getElementById('formAlertBox');
+
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('reviewName').value;
+                    const email = document.getElementById('reviewEmail').value;
+                    const company = document.getElementById('reviewCompany').value || '';
+                    const role = document.getElementById('reviewRole').value || '';
+                    const rating = parseInt(ratingInput.value);
+                    const review = document.getElementById('reviewText').value;
+                    const project = document.getElementById('reviewProject').value;
+
+                    alertBox.style.display = 'none';
+
+                    if (window.db) {
+                        window.db.collection('reviews').add({
+                            name: name,
+                            email: email,
+                            company: company,
+                            role: role,
+                            rating: rating,
+                            review: review,
+                            project: project,
+                            status: 'pending', // Requires admin moderation
+                            likes: 0,
+                            reports: 0,
+                            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                        })
+                        .then(() => {
+                            alertBox.className = 'form-status-alert success';
+                            alertBox.textContent = "Thank you! Your review has been submitted and is awaiting admin approval.";
+                            alertBox.style.display = 'block';
+                            form.reset();
+                            
+                            // Reset stars to 5
+                            stars.forEach(s => s.classList.add('active'));
+                            ratingInput.value = 5;
+
+                            // Scroll to top of box
+                            document.getElementById('submitReviewFormSection').scrollIntoView({ behavior: 'smooth' });
+                        })
+                        .catch((error) => {
+                            console.error("Reviews db write error: ", error);
+                            alertBox.className = 'form-status-alert error';
+                            alertBox.textContent = `Something went wrong. Please try again. (Error: ${error.message})`;
+                            alertBox.style.display = 'block';
+                        });
+                    } else {
+                        alertBox.className = 'form-status-alert error';
+                        alertBox.textContent = "Firebase database not loaded.";
+                        alertBox.style.display = 'block';
+                    }
+                });
+            }
+
+            // Report submission handler
+            const reportForm = document.getElementById('submitReportForm');
+            if (reportForm) {
+                reportForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const reviewId = document.getElementById('reportReviewId').value;
+                    const reason = document.getElementById('reportReason').value;
+                    const message = document.getElementById('reportMessage').value || '';
+
+                    if (window.db) {
+                        window.db.collection('reviewReports').add({
+                            reviewId: reviewId,
+                            reason: reason,
+                            message: message,
+                            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                        })
+                        .then(() => {
+                            // Update reports counter on review document securely via Firestore increment
+                            return window.db.collection('reviews').doc(reviewId).update({
+                                reports: firebase.firestore.FieldValue.increment(1)
+                            });
+                        })
+                        .then(() => {
+                            alert("📋 Review report submitted successfully. Our admin team will investigate.");
+                            closeReportModal();
+                            reportForm.reset();
+                        })
+                        .catch(err => {
+                            console.error("Report write error: ", err);
+                            alert("Failed to submit report. Please try again.");
+                        });
+                    }
+                });
+            }
+
+            // Load More button click
+            const loadBtn = document.getElementById('loadMoreReviewsBtn');
+            if (loadBtn) {
+                loadBtn.addEventListener('click', () => {
+                    activePageLimit += limitPerPage;
+                    renderReviews();
+                });
+            }
+
+            // Sort Selector Listener
+            const sortSelect = document.getElementById('reviewSortSelect');
+            if (sortSelect) {
+                sortSelect.addEventListener('change', (e) => {
+                    activeSortRule = e.target.value;
+                    sortReviewsList();
+                    renderReviews();
+                });
+            }
+
+            // Fetch initial approved reviews from Firestore
+            setupReviewsQuery();
+        });
+
+        // Setup Firestore Query Listener
+        function setupReviewsQuery() {
+            const wrapper = document.getElementById('reviewsWrapper');
+            if (window.db) {
+                window.db.collection('reviews')
+                    .where('status', '==', 'approved')
+                    .onSnapshot((snapshot) => {
+                        reviewsList = [];
+                        snapshot.forEach(doc => {
+                            const data = doc.data();
+                            reviewsList.push({
+                                id: doc.id,
+                                name: data.name,
+                                company: data.company || '',
+                                role: data.role || '',
+                                rating: data.rating,
+                                review: data.review,
+                                project: data.project || '',
+                                likes: data.likes || 0,
+                                reports: data.reports || 0,
+                                createdAt: data.createdAt ? data.createdAt.toDate() : new Date()
+                            });
+                        });
+
+                        // Calculate dynamic stats
+                        calculateStats();
+
+                        // Sort and render list
+                        sortReviewsList();
+                        renderReviews();
+                    }, (error) => {
+                        console.error("Firestore reviews failed: ", error);
+                        if (wrapper) {
+                            wrapper.innerHTML = `<div class="no-leads-placeholder" style="color:#ff5555; grid-column:1/-1;">Error reading database reviews. Check Firestore rules.</div>`;
+                        }
+                    });
+            }
+        }
+
+        // Stats calculation
+        function calculateStats() {
+            const count = reviewsList.length;
+            document.getElementById('totalReviewsVal').textContent = count;
+
+            if (count > 0) {
+                const totalRating = reviewsList.reduce((acc, r) => acc + r.rating, 0);
+                const average = (totalRating / count).toFixed(1);
+                document.getElementById('avgRatingVal').textContent = average;
+
+                // Render average stars
+                const starsDiv = document.getElementById('avgRatingStars');
+                starsDiv.innerHTML = '';
+                const fullStars = Math.floor(average);
+                const halfStar = (average - fullStars) >= 0.4 ? 1 : 0;
+                const emptyStars = 5 - fullStars - halfStar;
+
+                for (let i = 0; i < fullStars; i++) {
+                    starsDiv.innerHTML += '<i class="fas fa-star"></i>';
+                }
+                if (halfStar) {
+                    starsDiv.innerHTML += '<i class="fas fa-star-half-stroke"></i>';
+                }
+                for (let i = 0; i < emptyStars; i++) {
+                    starsDiv.innerHTML += '<i class="far fa-star"></i>';
+                }
+            } else {
+                document.getElementById('avgRatingVal').textContent = '0.0';
+                document.getElementById('avgRatingStars').innerHTML = '<i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>';
+            }
+        }
+
+        // Sorting
+        function sortReviewsList() {
+            sortedReviewsList = [...reviewsList];
+
+            if (activeSortRule === 'newest') {
+                sortedReviewsList.sort((a, b) => b.createdAt - a.createdAt);
+            } else if (activeSortRule === 'highest') {
+                sortedReviewsList.sort((a, b) => b.rating - a.rating || b.createdAt - a.createdAt);
+            } else if (activeSortRule === 'lowest') {
+                sortedReviewsList.sort((a, b) => a.rating - b.rating || b.createdAt - a.createdAt);
+            }
+        }
+
+        // Render Cards
+        function renderReviews() {
+            const wrapper = document.getElementById('reviewsWrapper');
+            const loadBtnWrapper = document.getElementById('loadMoreBtnWrapper');
+            if (!wrapper) return;
+
+            wrapper.innerHTML = '';
+
+            // Handle Pagination limits
+            const visibleReviews = sortedReviewsList.slice(0, activePageLimit);
+
+            visibleReviews.forEach(r => {
+                const initial = r.name.charAt(0).toUpperCase();
+                
+                // Form stars
+                let starsHTML = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= r.rating) {
+                        starsHTML += '<i class="fas fa-star"></i>';
+                    } else {
+                        starsHTML += '<i class="far fa-star"></i>';
+                    }
+                }
+
+                // Check localStorage to see if user has liked this review
+                const hasLiked = localStorage.getItem('liked_' + r.id) === 'true';
+                const likeClass = hasLiked ? 'liked' : '';
+
+                // Date formatting
+                const formattedDate = r.createdAt.toLocaleDateString('en-US', {
+                    year: 'numeric', month: 'short', day: 'numeric'
+                });
+
+                const companyRole = [r.role, r.company].filter(Boolean).join(', ');
+                const companyRoleLine = companyRole ? `<span class="role-company">${escapeHtml(companyRole)}</span>` : '';
+
+                const card = document.createElement('div');
+                card.id = `review-${r.id}`;
+                card.className = 'review-card';
+                card.innerHTML = `
+                    <div class="review-card-header">
+                        <div class="reviewer-avatar">${initial}</div>
+                        <div class="reviewer-info">
+                            <h4>${escapeHtml(r.name)}</h4>
+                            ${companyRoleLine}
+                        </div>
+                    </div>
+                    <div class="review-rating-row">
+                        <div class="card-stars">${starsHTML}</div>
+                        ${r.project ? `<span class="card-project-tag">${escapeHtml(r.project)}</span>` : ''}
+                    </div>
+                    <div class="review-card-body">
+                        <p>${escapeHtml(r.review)}</p>
+                    </div>
+                    <div class="review-card-footer">
+                        <span>${formattedDate}</span>
+                        <div class="review-actions-row">
+                            <button onclick="handleLike('${r.id}')" class="review-action-btn ${likeClass}" id="likeBtn_${r.id}">
+                                <i class="fa-solid fa-thumbs-up"></i> <span class="likes-count" id="likesVal_${r.id}">${r.likes}</span>
+                            </button>
+                            <button onclick="shareReview('${r.id}')" class="review-action-btn" title="Share Testimonial">
+                                <i class="fas fa-share-nodes"></i>
+                            </button>
+                            <button onclick="openReportModal('${r.id}')" class="review-action-btn" title="Report Abuse">
+                                <i class="fas fa-circle-exclamation"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                wrapper.appendChild(card);
+            });
+
+            // Display Load More button if more reviews remain
+            if (sortedReviewsList.length > activePageLimit) {
+                loadBtnWrapper.style.display = 'block';
+            } else {
+                loadBtnWrapper.style.display = 'none';
+            }
+
+            if (sortedReviewsList.length === 0) {
+                wrapper.innerHTML = `
+                    <div class="no-leads-placeholder" style="grid-column: 1 / -1;">
+                        <i class="fas fa-message" style="font-size:2.2rem; color:#444; margin-bottom:10px; display:block;"></i>
+                        <span>No reviews yet. Be the first to share your experience below!</span>
+                    </div>
+                `;
+            }
+        }
+
+        // Like handling
+        function handleLike(reviewId) {
+            const hasLiked = localStorage.getItem('liked_' + reviewId) === 'true';
+            const likeBtn = document.getElementById(`likeBtn_${reviewId}`);
+            const likesCountEl = document.getElementById(`likesVal_${reviewId}`);
+
+            if (hasLiked) {
+                alert("👍 You have already liked this client review!");
+                return;
+            }
+
+            if (window.db) {
+                // Update Firestore transaction-based increment safely
+                window.db.collection('reviews').doc(reviewId).update({
+                    likes: firebase.firestore.FieldValue.increment(1)
+                })
+                .then(() => {
+                    localStorage.setItem('liked_' + reviewId, 'true');
+                    if (likeBtn) likeBtn.classList.add('liked');
+                    if (likesCountEl) {
+                        const currentLikes = parseInt(likesCountEl.textContent);
+                        likesCountEl.textContent = currentLikes + 1;
+                    }
+                })
+                .catch(err => {
+                    console.error("Like increment failed:", err);
+                });
+            }
+        }
+
+        // Share Dialog
+        function shareReview(reviewId) {
+            const shareUrl = `${window.location.origin}/reviews#review-${reviewId}`;
+            navigator.clipboard.writeText(shareUrl).then(() => {
+                alert("🔗 Link to this review copied to clipboard:\n" + shareUrl);
+            }).catch(err => {
+                console.error("Clipboard copy failed: ", err);
+            });
+        }
+
+        // Report Modal Controls
+        function openReportModal(reviewId) {
+            document.getElementById('reportReviewId').value = reviewId;
+            document.getElementById('reportReviewModal').classList.add('active');
+        }
+
+        function closeReportModal() {
+            document.getElementById('reportReviewModal').classList.remove('active');
+        }
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return String(text).replace(/[&<>"']/g, function(m) { return map[m]; });
+        }
+    </script>
+</body>
+</html>

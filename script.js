@@ -184,6 +184,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const budget = document.getElementById('formBudget').value;
             const details = document.getElementById('formDescription').value;
             
+            // Save lead to Firestore if database is available
+            if (window.db) {
+                window.db.collection("leads").add({
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    company: company,
+                    projectType: projectType,
+                    budget: budget,
+                    description: details,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                }).then((docRef) => {
+                    console.log("Lead recorded in Firebase with ID:", docRef.id);
+                }).catch((error) => {
+                    console.error("Error recording lead in Firebase:", error);
+                });
+            } else {
+                console.warn("Firestore database not initialized. Lead was not saved locally.");
+            }
+            
             // 1. Alert confirmation
             alert(`🎉 Assalam-o-Alaikum ${name}!\n\nThank you for your scoping inquiry regarding: "${projectType}". Our developers will analyze your requirements and get back to you shortly.\n\nWe will now redirect you to WhatsApp to discuss details directly.`);
             

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Insight | SkyEagle Studio</title>
+    <meta name="description" content="Read expert insights on SaaS platforms, custom POS invoicing engines, mobile apps, and artificial intelligence configurations by SkyEagle Studio.">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+        .article-section {
+            padding: 120px 20px 80px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 8px;
+            font-size: 0.82rem;
+            color: #666;
+            margin-bottom: 25px;
+            align-items: center;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #fff;
+        }
+
+        .article-header {
+            text-align: left;
+            margin-bottom: 35px;
+        }
+
+        .article-category {
+            display: inline-block;
+            background: rgba(0, 240, 255, 0.08);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            color: var(--primary);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .article-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: #fff;
+            line-height: 1.25;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            color: #888;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 20px;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .article-meta i {
+            color: var(--primary);
+        }
+
+        .article-featured-image {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #1a1a1a;
+            max-height: 480px;
+            object-fit: cover;
+        }
+
+        /* TOC */
+        .article-toc-box {
+            background: rgba(10, 10, 10, 0.5);
+            border: 1px solid #151515;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 35px;
+        }
+
+        .article-toc-box h4 {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            color: #fff;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article-toc-box ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .article-toc-box li {
+            margin-bottom: 8px;
+            font-size: 0.88rem;
+        }
+
+        .article-toc-box li a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .article-toc-box li a:hover {
+            color: var(--primary);
+        }
+
+        /* Body Content Styling */
+        .article-body-content {
+            color: #bbb;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            text-align: left;
+        }
+
+        .article-body-content p {
+            margin-bottom: 25px;
+        }
+
+        .article-body-content h2 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: #fff;
+            margin: 45px 0 20px;
+            font-weight: 700;
+        }
+
+        .article-body-content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: #fff;
+            margin: 35px 0 15px;
+            font-weight: 700;
+        }
+
+        .article-body-content ul, .article-body-content ol {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+
+        .article-body-content li {
+            margin-bottom: 10px;
+        }
+
+        .article-body-content blockquote {
+            border-left: 3px solid var(--primary);
+            background: rgba(0, 240, 255, 0.02);
+            padding: 20px 30px;
+            margin: 35px 0;
+            font-style: italic;
+            color: #fff;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Share Area */
+        .article-share-section {
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+            padding: 25px 0;
+            margin: 50px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .article-share-section h4 {
+            font-family: var(--font-heading);
+            color: #fff;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .share-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .share-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #222;
+            color: #aaa;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .share-btn:hover {
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .share-btn.wa:hover { background: #25d366; border-color: #25d366; }
+        .share-btn.fb:hover { background: #3b5998; border-color: #3b5998; }
+        .share-btn.tw:hover { background: #1da1f2; border-color: #1da1f2; }
+        .share-btn.ln:hover { background: #0077b5; border-color: #0077b5; }
+        .share-btn.cp:hover { background: var(--primary); border-color: var(--primary); }
+
+        /* Article CTA */
+        .article-cta-box {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.05) 0%, rgba(255, 0, 247, 0.05) 100%);
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .article-cta-box h3 {
+            font-family: var(--font-heading);
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .article-cta-box p {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        /* Related Grid */
+        .related-section h3 {
+            font-family: var(--font-heading);
+            color: #fff;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            text-align: left;
+            letter-spacing: 0.5px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .blog-card {
+            text-align: left;
+        }
+
+        /* Error state */
+        .article-error-state {
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .article-error-state h2 {
+            font-family: var(--font-heading);
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .article-title {
+                font-size: 1.8rem;
+            }
+            .article-section {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen Transition -->
+    <div class="loading-screen" id="loaderScreen" aria-hidden="true">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Custom Neon Cursor Follower -->
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-follower" aria-hidden="true"></div>
+
+    <!-- Cosmic Background Elements -->
+    <div class="bg-container" aria-hidden="true">
+        <div class="grid-overlay"></div>
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <nav>
+        <div class="logo-container">
+            <a href="/" style="text-decoration: none;">
+                <div class="logo">SkyEagle Studio</div>
+            </a>
+            <div class="logo-subtitle">SOFTWARE STUDIO</div>
+        </div>
+        <div class="hamburger-menu" id="navToggle" aria-label="Toggle Navigation">
+            <i class="fas fa-bars"></i>
+        </div>
+                <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/projects">Work</a></li>
+            <li><a href="/software">Software</a></li>
+            <li><a href="/reviews">Reviews</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li class="nav-cta-item"><a href="/contact" class="btn btn-primary nav-cta-btn">Start a Project</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="article-section">
+            
+            <!-- Dynamic placeholder wrapper -->
+            <div id="articleDetailsWrapper">
+                <div style="text-align: center; padding: 100px 0;">
+                    <i class="fas fa-circle-notch fa-spin" style="font-size:2.5rem; color:var(--primary); margin-bottom:15px;"></i>
+                    <p style="color:#666;">Locating insight logs...</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-team">SkyEagle Studio</div>
+        <p style="color: #aaa; margin-bottom: 20px; font-size: 1.1rem;">Digital products, software and AI solutions built for real businesses.</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 20px;">
+            <a href="/" style="color: #888; text-decoration: none; font-size: 0.9rem;">Home</a>
+            <a href="/services" style="color: #888; text-decoration: none; font-size: 0.9rem;">Services</a>
+            <a href="/projects" style="color: #888; text-decoration: none; font-size: 0.9rem;">Work</a>
+            <a href="/software" style="color: #888; text-decoration: none; font-size: 0.9rem;">Software</a>
+            <a href="/about" style="color: #888; text-decoration: none; font-size: 0.9rem;">About</a>
+            <a href="/contact" style="color: #888; text-decoration: none; font-size: 0.9rem;">Contact</a>
+            <a href="/privacy-policy" style="color: #888; text-decoration: none; font-size: 0.9rem;">Privacy</a>
+            <a href="/terms" style="color: #888; text-decoration: none; font-size: 0.9rem;">Terms</a>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/muhammadumairamir12-del" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/muhammad-umair-amir-5a154b3a9/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://web.facebook.com/skyeaglestudio" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/codingwithumair/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/MUmair_xyz" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://youtube.com/@codingwithumair5?si=SRCwGQ17y4uDuSn9" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@startups_apps?_r=1&_t=ZS-998xyOL1yQG" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p style="color: #666; font-size: 0.9rem; margin-top: 20px;">© 2026 SkyEagle Studio. All rights reserved. | Deployed Globally</p>
+    </footer>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="../firebase-init.js"></script>
+    <script src="../blog-data.js"></script>
+    <script src="../script.js"></script>
+
+    <!-- Dynamic page script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Find slug from URL pathname (Vercel rewrite: /blog/slug) or query string (Local fallback: ?slug=slug)
+            const pathname = window.location.pathname;
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            let slug = urlParams.get('slug');
+            if (!slug) {
+                // Parse clean URL slug (e.g., /blog/why-hair-transplant...)
+                const pathParts = pathname.split('/');
+                slug = pathParts[pathParts.length - 1] || pathParts[pathParts.length - 2];
+            }
+
+            // Remove .html if it is present in slug
+            if (slug && slug.endsWith('.html')) {
+                slug = slug.replace('.html', '');
+            }
+
+            const wrapper = document.getElementById('articleDetailsWrapper');
+
+            // Find post
+            const post = window.blogPostsData ? window.blogPostsData.find(p => p.slug === slug) : null;
+
+            if (!post) {
+                // Show Error state
+                wrapper.innerHTML = `
+                    <div class="article-error-state">
+                        <h2>Insight Log Not Found</h2>
+                        <p style="color:#666; margin-bottom:30px;">The requested blog article does not exist or has been archived.</p>
+                        <a href="/blog" class="btn btn-secondary"><span>Return to Blog Insights</span></a>
+                    </div>
+                `;
+                return;
+            }
+
+            // 1. Dynamic SEO tags updates
+            document.title = post.seoTitle;
+            document.querySelector('meta[name="description"]').setAttribute('content', post.seoDescription);
+            
+            // Inject OpenGraph / Twitter tags dynamically
+            const ogTitle = document.createElement('meta');
+            ogTitle.setAttribute('property', 'og:title');
+            ogTitle.content = post.seoTitle;
+            document.head.appendChild(ogTitle);
+
+            const ogDesc = document.createElement('meta');
+            ogDesc.setAttribute('property', 'og:description');
+            ogDesc.content = post.seoDescription;
+            document.head.appendChild(ogDesc);
+
+            const ogImage = document.createElement('meta');
+            ogImage.setAttribute('property', 'og:image');
+            ogImage.content = post.featuredImage;
+            document.head.appendChild(ogImage);
+
+            // Canonical Link
+            let canonical = document.querySelector('link[rel="canonical"]');
+            if (!canonical) {
+                canonical = document.createElement('link');
+                canonical.rel = 'canonical';
+                document.head.appendChild(canonical);
+            }
+            canonical.href = `https://skyeaglestudio.com/blog/${post.slug}`;
+
+            // Schema Markup injection
+            const schemaData = {
+                "@context": "https://schema.org",
+                "@type": "BlogPosting",
+                "headline": post.title,
+                "description": post.excerpt,
+                "image": post.featuredImage,
+                "author": {
+                    "@type": "Person",
+                    "name": post.author
+                },
+                "datePublished": new Date(post.publishedAt).toISOString().split('T')[0],
+                "dateModified": new Date(post.updatedAt).toISOString().split('T')[0],
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "SkyEagle Studio",
+                    "url": "https://skyeaglestudio.com"
+                }
+            };
+            const scriptSchema = document.createElement('script');
+            scriptSchema.type = 'application/ld+json';
+            scriptSchema.text = JSON.stringify(schemaData);
+            document.head.appendChild(scriptSchema);
+
+            // 2. Generate TOC entries dynamically based on h2 headings in article content
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = post.content;
+            const headings = tempDiv.querySelectorAll('h2');
+            
+            let tocHTML = '';
+            if (headings.length > 0) {
+                tocHTML = `
+                    <div class="article-toc-box">
+                        <h4>Table of Contents</h4>
+                        <ul>
+                `;
+                headings.forEach((heading, idx) => {
+                    const text = heading.textContent;
+                    const id = `toc-section-${idx}`;
+                    heading.id = id; // Update id inside HTML
+                    tocHTML += `<li><a href="#${id}">${text}</a></li>`;
+                });
+                tocHTML += `</ul></div>`;
+            }
+            
+            // Re-fetch content with heading IDs injected
+            const modifiedContent = tempDiv.innerHTML;
+
+            // 3. Find related posts (different posts, same category or next indices)
+            const related = window.blogPostsData
+                .filter(p => p.id !== post.id)
+                .slice(0, 2);
+
+            let relatedHTML = '';
+            related.forEach(rel => {
+                relatedHTML += `
+                    <div class="blog-card">
+                        <div class="blog-image-wrapper">
+                            <span class="blog-badge">${rel.category}</span>
+                            <img src="${rel.featuredImage}" alt="${rel.title}" class="blog-image">
+                        </div>
+                        <div class="blog-card-content">
+                            <div>
+                                <h3 class="blog-card-title">${rel.title}</h3>
+                                <p class="blog-card-excerpt">${rel.excerpt}</p>
+                            </div>
+                            <div class="blog-card-footer">
+                                <div class="blog-author-info">
+                                    <span class="blog-author-name">${rel.author}</span>
+                                    <span class="blog-meta-date">${rel.publishedAt}</span>
+                                </div>
+                                <a href="/blog/${rel.slug}" class="btn btn-secondary" style="font-size:0.75rem; padding: 6px 12px; margin-left:auto;">Read</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // 4. Render Layout
+            const currentUrl = encodeURIComponent(`https://skyeaglestudio.com/blog/${post.slug}`);
+            const shareText = encodeURIComponent(post.title);
+
+            wrapper.innerHTML = `
+                <!-- Breadcrumbs -->
+                <div class="breadcrumb">
+                    <a href="/">Home</a>
+                    <i class="fas fa-chevron-right" style="font-size:0.6rem;"></i>
+                    <a href="/blog">Blog</a>
+                    <i class="fas fa-chevron-right" style="font-size:0.6rem;"></i>
+                    <span style="color:#aaa;">${post.title}</span>
+                </div>
+
+                <!-- Header -->
+                <div class="article-header">
+                    <span class="article-category">${post.category}</span>
+                    <h1 class="article-title">${post.title}</h1>
+                    <div class="article-meta">
+                        <span><i class="fas fa-user-pen"></i> By ${post.author}</span>
+                        <span><i class="fas fa-calendar-day"></i> Published: ${post.publishedAt}</span>
+                        <span><i class="fas fa-clock"></i> Reading Time: ${post.excerpt.split(' ').length > 100 ? '6' : '5'} Min Read</span>
+                    </div>
+                </div>
+
+                <!-- Featured Image Banner -->
+                <img src="${post.featuredImage}" alt="${post.title}" class="article-featured-image">
+
+                <!-- TOC (If headings exist) -->
+                ${tocHTML}
+
+                <!-- Body Content -->
+                <div class="article-body-content">
+                    ${modifiedContent}
+                </div>
+
+                <!-- Share handler -->
+                <div class="article-share-section">
+                    <h4>Share This Article</h4>
+                    <div class="share-icons">
+                        <button onclick="copyToClipboard()" class="share-btn cp" title="Copy Link"><i class="fas fa-link"></i></button>
+                        <a href="https://wa.me/?text=${shareText}%20${currentUrl}" target="_blank" class="share-btn wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://web.facebook.com/sharer/sharer.php?u=${currentUrl}" target="_blank" class="share-btn fb" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/intent/tweet?text=${shareText}&url=${currentUrl}" target="_blank" class="share-btn tw" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}" target="_blank" class="share-btn ln" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="article-cta-box">
+                    <h3>Need help building your digital product?</h3>
+                    <p>Discuss your SaaS, custom POS billing registries, mobile app, or AI scope models with our development lead.</p>
+                    <a href="/contact" class="btn btn-primary"><span>Start a Project <i class="fas fa-arrow-right" style="margin-left:6px;"></i></span></a>
+                </div>
+
+                <!-- Related Insights -->
+                <div class="related-section">
+                    <h3>Related Insights</h3>
+                    <div class="related-grid">
+                        ${relatedHTML}
+                    </div>
+                </div>
+            `;
+            
+            // Trigger smooth hide loader
+            const loader = document.getElementById('loaderScreen');
+            if (loader) {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    loader.style.pointerEvents = 'none';
+                }, 500);
+            }
+        });
+
+        // Copy Clipboard Helper
+        function copyToClipboard() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert("📋 Article link copied to clipboard!");
+            }).catch(err => {
+                console.error("Failed to copy url: ", err);
+            });
+        }
+    </script>
+</body>
+</html>
